@@ -21,11 +21,11 @@ EEG.chanlocs = readlocs('insightCED.ced', 'filetype','autodetect'); % Read chann
 EEG = pop_reref(EEG); % Reference data to average
 
 pop_spectopo(EEG) % Plot Spectral Map 
-pause() % pause prgram to allow spectral map visualization
+pause() % pause program to allow spectral map visualization
 
-EEG = pop_runica(EEG); % Run Independent component analysis
+EEG = pop_runica(EEG); % Run independent component analysis
 EEG = pop_selectcomps(EEG); % Visualize components
-pause()
+pause() % pause program to visualize the components spectral maps
 EEG = pop_subcomp(EEG); % Remove bad components, if any
 
 pop_eegplot(EEG) % Remove remaining artifcats by eye
