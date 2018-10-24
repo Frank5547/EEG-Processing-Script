@@ -44,10 +44,10 @@ thetaFreq = find(freqs>=4 & freqs<=8);
 alphaFreq = find(freqs>=8 & freqs<=12);
 betaFreq  = find(freqs>=12 & freqs<=30);
 
-% compute spectral power
+% compute mean spectral power
 thetaPow = [thetaPow,10^(mean(spectra(thetaFreq))/10)];
 alphaPow = [alphaPow,10^(mean(spectra(alphaFreq))/10)];
 betaPow = [betaPow,10^(mean(spectra(betaFreq))/10)];
 end
 
-TeRatio = mean(betaPow) / (mean(thetaPow) + mean(alphaPow)); % Compute engagement ratio
+TeRatio = betaPow / (thetaPow + alphaPow); % Compute engagement ratio
