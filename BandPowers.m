@@ -36,15 +36,16 @@ pause() % pause program to allow spectral map visualization
 betaPow = [];
 alphaPow = [];
 thetaPow = [];
-for i = 1:5 % Compute band powers for each EEG channel
-[spectra,freqs] = spectopo(EEG.data(i,:,:), 0, EEG.srate, 'plot', 'off');
+for i = 1:5 % Compute band powers for each EEG channel in EMOTIV Insight
+  [spectra,freqs] = spectopo(EEG.data(i,:,:), 0, EEG.srate, 'plot', 'off');
 
-% theta=4-8, alpha=8-12, beta=12-30
-thetaFreq = find(freqs>=4 & freqs<=8);
-alphaFreq = find(freqs>=8 & freqs<=12);
-betaFreq  = find(freqs>=12 & freqs<=30);
+  % theta=4-8, alpha=8-12, beta=12-30
+  thetaFreq = find(freqs>=4 & freqs<=8);
+  alphaFreq = find(freqs>=8 & freqs<=12);
+  betaFreq  = find(freqs>=12 & freqs<=30);
 
-% compute mean spectral power
-thetaPow = [thetaPow,10^(mean(spectra(thetaFreq))/10)];
-alphaPow = [alphaPow,10^(mean(spectra(alphaFreq))/10)];
-betaPow = [betaPow,10^(mean(spectra(betaFreq))/10)];
+  % compute absolute spectral power
+  thetaPow = [thetaPow, mean(10.^(spectra(thetaFreq))/10)];
+  alphaPow = [alphaPow, mean(10.^(spectra(alphaFreq))/10)];
+  betaPow = [betaPow, mean(10.^(spectra(betaFreq))/10)];
+end
