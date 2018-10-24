@@ -50,4 +50,4 @@ alphaPow = [alphaPow,10^(mean(spectra(alphaFreq))/10)];
 betaPow = [betaPow,10^(mean(spectra(betaFreq))/10)];
 end
 
-TeRatio = betaPow / (thetaPow + alphaPow); % Compute engagement ratio
+TeRatio = sum(betaPow) / (sum(thetaPow) + sum(alphaPow)); % Compute engagement ratio
