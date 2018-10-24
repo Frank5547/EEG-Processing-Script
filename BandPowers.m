@@ -1,4 +1,4 @@
-% MATH 4080 Final Project 1: Music Classifciation of EEG signals
+% MATH 4080 Project 1: Music Classifciation of EEG signals_TE Ratio Calculation
 % Francisco Javier Carrera Arias
 % 08/25/2017 V3.3
 
@@ -49,3 +49,6 @@ for i = 1:5 % Compute band powers for each EEG channel in EMOTIV Insight
   alphaPow = [alphaPow, mean(10.^(spectra(alphaFreq))/10)];
   betaPow = [betaPow, mean(10.^(spectra(betaFreq))/10)];
 end
+
+# Pope et al task engagament ratio accross all channels (Beta/(alpha+theta))
+TE_Ratio = sum(betaPow)/(sum(thetaPow)+sum(alphaPow))
