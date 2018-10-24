@@ -39,7 +39,7 @@ thetaPow = [];
 for i = 1:5 % Compute band powers for each EEG channel
 [spectra,freqs] = spectopo(EEG.data(i,:,:), 0, EEG.srate, 'plot', 'off');
 
-% theta=4-7, alpha=8-12, beta=13-30
+% theta=4-8, alpha=8-12, beta=12-30
 thetaFreq = find(freqs>=4 & freqs<=8);
 alphaFreq = find(freqs>=8 & freqs<=12);
 betaFreq  = find(freqs>=12 & freqs<=30);
