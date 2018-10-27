@@ -49,6 +49,3 @@ for i = 1:5 % Compute band powers for each EEG channel in EMOTIV Insight
   alphaPow = [alphaPow, mean(10.^(spectra(alphaFreq))/10)];
   betaPow = [betaPow, mean(10.^(spectra(betaFreq))/10)];
 end
-
-# Pope et al task engagament ratio accross all channels (Beta/(alpha+theta))
-TE_Ratio = sum(betaPow)/(sum(thetaPow)+sum(alphaPow))
