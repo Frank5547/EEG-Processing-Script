@@ -44,7 +44,7 @@ for i = 1:5 % Compute band powers for each EEG channel in EMOTIV Insight
   alphaFreq = find(freqs>=8 & freqs<=12);
   betaFreq  = find(freqs>=12 & freqs<=30);
 
-  % compute absolute spectral power
+  % compute spectral power
   thetaPow = [thetaPow, mean(10.^(spectra(thetaFreq))/10)];
   alphaPow = [alphaPow, mean(10.^(spectra(alphaFreq))/10)];
   betaPow = [betaPow, mean(10.^(spectra(betaFreq))/10)];
